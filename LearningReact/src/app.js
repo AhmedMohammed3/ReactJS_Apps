@@ -5,17 +5,24 @@ class IndecisionApp extends React.Component {
         this.addOption = this.addOption.bind(this);
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.state = {
-            options: ['Item 1', 'Item 2', 'Item 3']
+            options: []
         }
     }
     handlePick() {
         const randomNum = Math.floor(
             Math.random() * this.state.options.length);
-        console.log(randomNum);
-        console.log(this.state)
         alert(this.state.options[randomNum]);
     }
     addOption(option) {
+
+        if (!option) {
+            return 'Enter valid value to add item';
+        }
+        else if (this.state.options.indexOf(option) > -1) {
+            return 'This option already exists';
+        }
+
+
         this.setState(prevState => {
             return {
                 options: [...prevState.options, option]
@@ -75,7 +82,6 @@ class Options extends React.Component {
             <div>
                 <button onClick={this.props.handleDeleteOptions}
                 >Remove All</button>
-                <p>{this.props.options.length}</p>
                 <ol>
                     {
                         this.props.options.map(option => {
@@ -104,21 +110,29 @@ class AddOption extends React.Component {
     constructor(props) {
         super(props);
         this.handleAddOption = this.handleAddOption.bind(this);
+        this.state = {
+            error: undefined
+        };
     }
     handleAddOption(e) {
         e.preventDefault()
-        const option = e.target.elements.option.trim();
-        if (option) {
-            this.props.addOption(option);
-        }
-        e.target.elements.option = '';
+        const option = e.target.elements.option.value.trim();
+        const error = this.props.addOption(option);
+        this.setState(() => {
+            return { error };
+        })
+
+        e.target.elements.option.value = '';
     }
     render() {
         return (
-            <form onSubmit={this.handleAddOption}>
-                <input type="text" name="option" />
-                <button>Add Option</button>
-            </form>
+            <div>
+                {this.state.error && <p>{this.state.error}</p>}
+                <form onSubmit={this.handleAddOption}>
+                    <input type="text" name="option" />
+                    <button>Add Option</button>
+                </form>
+            </div>
         );
     }
 }
