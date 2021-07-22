@@ -8,6 +8,18 @@ class CounterApp extends React.Component {
             count: 0
         }
     }
+    componentDidMount() {
+        const count = parseInt(localStorage.getItem('count'));
+        if (!isNaN(count))
+            this.setState(_ => ({
+                count
+            }))
+
+    }
+    componentDidUpdate(_, prevState) {
+        if (prevState.count !== this.state.count)
+            localStorage.setItem('count', this.state.count);
+    }
     handleAddOne() {
         this.setState(prevState => {
             return {
