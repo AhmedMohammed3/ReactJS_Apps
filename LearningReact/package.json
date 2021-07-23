@@ -7,15 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "live-server public/",
     "build": "webpack",
-    "dev-server": "webpack serve"
+    "start": "webpack serve"
   },
   "keywords": [],
   "author": "Ahmed Hassan",
   "license": "ISC",
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "http-status-codes": "^2.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-modal": "^3.14.3",
     "validator": "^13.6.0"
   },
   "devDependencies": {

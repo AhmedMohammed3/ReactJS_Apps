@@ -10,7 +10,7 @@ const Options = props => (
         {
             props.options.map(option => {
                 return (
-                    <Option key={option}
+                    <Option key={option._id}
                         option={option}
                         deleteOneOption={props.deleteOneOption}
                     />

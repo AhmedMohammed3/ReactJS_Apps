@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusCodes } from 'http-status-codes';
 
 import Header from './header';
 import Action from './action';
@@ -11,21 +12,35 @@ export default class IndecisionApp extends React.Component {
     }
     componentDidMount() {
         try {
-            const options = JSON.parse(localStorage.getItem('options'));
-            if (options) {
-                this.setState(_ => ({
-                    options
-                }))
-            }
+            fetch('http://localhost:12345/main/options', {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => {
+                    if (res.status === StatusCodes.NOT_FOUND) {
+                        throw new Error(res.msg);
+                    }
+                    return res.json();
+                })
+                .then(resData => {
+                    console.log(resData);
+                    const options = resData.options;
+                    if (options) {
+                        this.setState(_ => ({
+                            options
+                        }))
+                    }
+                })
         }
         catch (e) {
-
+            console.log(e);
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.options.length !== this.state.options.length) {
-            localStorage.setItem('options', JSON.stringify(this.state.options))
+            // put on database
         }
     }
 
@@ -48,14 +63,51 @@ export default class IndecisionApp extends React.Component {
             return 'This option already exists';
         }
 
+        fetch('http://localhost:12345/main/option', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                optionText: option
+            })
+        })
+            .then(res => {
+                if (res.status === StatusCodes.UNPROCESSABLE_ENTITY) {
+                    throw new Error(res.msg);
+                }
+                return res.json();
+            })
+            .then(resData => {
+                console.log(resData);
+                const createdOption = resData.createdOption;
+                this.setState(prevState => ({ options: [...prevState.options, createdOption] }));
+            })
+            .catch(err => console.log(err));
 
-        this.setState(prevState => ({ options: [...prevState.options, option] }));
     }
 
-    deleteOneOption = (optionToRemove) => {
-        this.setState(prevState => {
-            return { options: prevState.options.filter(option => optionToRemove !== option) }
+    deleteOneOption = (optionIdToRemove) => {
+        fetch('http://localhost:12345/main/option/' + optionIdToRemove, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
+            .then(res => {
+                if (res.status === StatusCodes.INTERNAL_SERVER_ERROR) {
+                    throw new Error(res.msg);
+                }
+                return res.json();
+            })
+            .then(resData => {
+                console.log(resData);
+                const deletedOption = resData.deletedOption;
+                this.setState(prevState => {
+                    return { options: prevState.options.filter(option => optionIdToRemove !== option._id) }
+                })
+            })
+            .catch(err => console.log(err));
     }
 
     handleDeleteOptions = () => {
