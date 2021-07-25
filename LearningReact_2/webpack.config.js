@@ -23,6 +23,9 @@ module.exports = {
         }
         ]
     },
+    resolve: {
+        extensions: ['.js', '.jsx', '.css', '.scss']
+    },
     devtool: 'cheap-module-source-map',
     devServer: {
         contentBase: path.join(__dirname, 'public'),

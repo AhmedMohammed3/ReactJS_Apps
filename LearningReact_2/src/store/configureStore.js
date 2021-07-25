@@ -7,7 +7,8 @@ export default () => {
         combineReducers({
             expenses: expensesReducer,
             filters: filtersReducer
-        })
+        }),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // TODO: remove this line on production
     );
 
     return store;

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "live-server public/",
     "build": "webpack",
-    "start": "webpack serve"
+    "start": "webpack serve --port 1234"
   },
   "keywords": [],
   "author": "Ahmed Hassan",
@@ -26,6 +26,7 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.1.0",
     "sass-loader": "^12.1.0",
+    "shebang-loader": "0.0.1",
     "style-loader": "^3.2.1",
     "uuid": "^8.3.2",
     "validator": "^13.6.0"
