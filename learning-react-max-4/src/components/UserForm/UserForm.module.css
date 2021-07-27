@@ -1,0 +1,59 @@
+.userForm__ {
+    background: white;
+    box-shadow: 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    margin: 2rem auto;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    width: 90%;
+    max-width: 40rem;
+}
+
+.userForm__ label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.userForm__ input {
+    font: inherit;
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 0.15rem;
+}
+
+.userForm__ input:focus {
+    outline: none;
+    border-color: #4f005f;
+}
+
+.userForm__ button {
+    font: inherit;
+    border: 1px solid #4f005f;
+    background: #4f005f;
+    color: white;
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+    margin: 10px 0;
+    /* display: inline-block; */
+}
+
+.userForm__ button:hover,
+.userForm__ button:active {
+    background: #741188;
+    border-color: #741188;
+}
+
+.userForm__ button:focus {
+    outline: none;
+}
+
+/* .userForm__ .invalidP {
+    color: red
+}
+
+.userForm__ .invalidInput {
+    border-color: rgb(255, 82, 82);
+    background-color: rgb(255, 177, 177);
+} */

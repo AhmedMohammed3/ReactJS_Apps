@@ -1,0 +1,24 @@
+.userList__ {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 90%;
+    max-width: 40rem;
+  }
+  
+.userList__ ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.userList__ li {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 7px;
+    margin-top: 10px;
+    margin-left: 0;
+    font-weight: 600;
+}
