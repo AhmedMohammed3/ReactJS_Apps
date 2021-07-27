@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import UserForm from './components/UserForm/UserForm';
@@ -17,10 +17,10 @@ const App = () => {
     ]))
   }
   return (
-    <div>
+    <>
       <UserForm onAddUser={addUserHandler} />
       <UserList users={users} />
-    </div>
+    </>
   );
 };
 
