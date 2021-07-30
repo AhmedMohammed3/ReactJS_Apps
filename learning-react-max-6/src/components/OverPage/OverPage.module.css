@@ -1,0 +1,25 @@
+.over-page__ {
+    position: fixed;
+    background-color: #363636;
+    width: 40%;
+    /* margin: auto; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px black;
+    color: white;
+    text-align: center;
+    left: 30%;
+    top: 38%;
+}
+
+.over-page__heading {
+    padding: 0;
+    margin: 0;
+}
+
+.over-page__paragraph {
+    padding: 0;
+    margin: 0;
+    font-weight: 100;
+    font-size: 13px;
+}
