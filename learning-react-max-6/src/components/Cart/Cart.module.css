@@ -1,0 +1,83 @@
+.cart__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.cart__ {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    position: fixed;
+    top: 30vh;
+    left: 10%;
+    width: 80%;
+    z-index: 100;
+    overflow: hidden;
+    padding: 30px;
+}
+
+.cart__footer__total-price {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.cart__footer__total-price p{
+    margin: 10px 0px;
+
+}
+
+.cart__footer__actions {
+    display: flex;
+    /* flex-direction: row-reverse; */
+    text-align: center;
+    justify-content: flex-end;
+}
+
+.cart__btn {
+    cursor: pointer;
+    border: 1px solid #4d1601;
+    padding: 0.75rem 3rem;
+    border-radius: 25px;
+    font-weight: bold;
+    margin: 0px 5px;
+}
+
+.cart__order-btn {
+    background-color: #4d1601;
+    color: white;
+}
+
+.cart__order-btn:hover, .cart__order-btn:active {
+    background-color: white;
+    color: #4d1601;
+}
+
+.cart__order-btn:focus, .cart__close-btn:focus {
+    outline: none;
+}
+
+.cart__close-btn {
+    background-color: white;
+    color: #4d1601;
+}
+
+.cart__close-btn:hover, .cart__close-btn:active {
+    background-color: #4d1601;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .cart__ {
+        left: calc(50% - 20rem);
+        width: 40rem;
+    }
+}
