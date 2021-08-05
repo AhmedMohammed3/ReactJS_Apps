@@ -7,18 +7,16 @@
 }
 
 .remove_btn {
-  border-color: white;
-  border-radius: 30px;
   color: white;
+  border-radius: 30px;
+  border-color: white;
   margin: 0;
-  padding: 0 8px;
+  padding: 4px 8px;
 }
 
 .remove_btn:hover {
-  background-color: transparent;
-  color: #3a3a3a;
+  background-color: #4B4B4B;
   border-color: white;
-
 }
 
 .item {
