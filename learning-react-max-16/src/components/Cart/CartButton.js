@@ -5,7 +5,7 @@ import { cartActions } from '../../store/reducers/cart-reducer';
 
 const CartButton = props => {
 	const dispatch = useDispatch();
-	const cartNumOfItems = useSelector(state => state.cartNumOfItems);
+	const cartNumOfItems = useSelector(state => state.cart.cartNumOfItems);
 
 	const showCartHandler = () => {
 		dispatch(cartActions.toggleCart());

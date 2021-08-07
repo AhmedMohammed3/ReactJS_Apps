@@ -18,7 +18,7 @@ const Products = props => {
 			.catch(err => {
 				console.log(err);
 			});
-	});
+	}, []);
 	return (
 		<section className={classes.products}>
 			<h2>Buy your favorite products</h2>

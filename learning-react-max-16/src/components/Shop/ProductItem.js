@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../../store/reducers/cart-reducer';
 import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
+import { showNotification } from '../../helpers/ui.helper';
 
 const ProductItem = ({ product }) => {
 	const [error, setError] = useState();
@@ -16,6 +17,7 @@ const ProductItem = ({ product }) => {
 			setError('Quantity from 1 to 5');
 			return;
 		}
+		console.log('Product _id:', _id);
 		dispatch(
 			cartActions.addToCart({
 				_id,
@@ -24,6 +26,7 @@ const ProductItem = ({ product }) => {
 				quantity: qtyValue || 1,
 			})
 		);
+		showNotification('Added to cart', dispatch);
 		setError(undefined);
 		console.log('Added to cart');
 	};
