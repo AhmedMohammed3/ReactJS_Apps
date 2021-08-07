@@ -1,11 +1,12 @@
 import { Fragment, useEffect } from 'react';
 import { Route, useParams, Link, useRouteMatch } from 'react-router-dom';
 
-import HighlightedQuote from '../quotes/HighlightedQuote';
-import Comments from '../comments/Comments';
-import { getSingleQuote } from '../../lib/api';
-import useHttp from '../../hooks/use-http';
-import LoadingSpinner from '../UI/LoadingSpinner';
+import HighlightedQuote from '../components/quotes/HighlightedQuote';
+import Comments from '../components/comments/Comments';
+import { getSingleQuote } from '../lib/api';
+import useHttp from '../hooks/use-http';
+import LoadingSpinner from '../components/UI/LoadingSpinner';
+
 
 const QuoteDetail = () => {
 	const { sendRequest, status, error, data: quote } = useHttp(getSingleQuote);
