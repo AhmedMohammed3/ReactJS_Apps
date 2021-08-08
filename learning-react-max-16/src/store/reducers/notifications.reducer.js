@@ -12,7 +12,7 @@ const notificationsSlice = createSlice({
 	reducers: {
 		setNotificationMessage(state, { payload: notif }) {
 			state.isVisible = true;
-			state.title = notif.title && '';
+			state.title = notif.title || '';
 			state.msg = notif.msg;
 		},
 		resetNotification(state) {
